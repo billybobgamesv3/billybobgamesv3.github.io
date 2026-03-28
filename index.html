@@ -19,128 +19,102 @@
   <link rel="apple-touch-icon" href="./siteimages/apple-touch-icon.png" type="image/png">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #2b2b2b;
-      color: #e0e0e0;
-      overflow: hidden;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      user-select: none;
-    }
-    #title {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 700;
-      font-size: 4rem;
-      background: linear-gradient(90deg, #4da6ff, #1e90ff, #4da6ff);
-      background-size: 200% 200%;
-      animation: gradientShift 3s ease infinite;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 8px rgba(77, 166, 255, 0.6);
-      margin-bottom: 1rem;
-    }
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-    #button-container {
-      display: flex;
-      gap: 40px;
-      z-index: 10;
-    }
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
-    button {
-      background: #4da6ff;
-      border: none;
-      border-radius: 8px;
-      padding: 14px 32px;
-      font-size: 1.1rem;
-      color: white;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      min-width: 220px;
-    }
-    button:hover {
-      background: #3a8dde;
-    }
-    #tsparticles {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      z-index: 1;
-      pointer-events: none;
-    }
+  * {
+    box-sizing: border-box;
+  }
 
-    /* Stylish Password Screen */
-    #passwordScreen {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw; height: 100vh;
-      background: linear-gradient(135deg, #1a1a1a, #2b2b2b);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      z-index: 9999;
-      font-family: 'Poppins', sans-serif;
-      animation: fadeIn 0.5s ease-out;
-    }
-    #passwordScreen h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      background: linear-gradient(90deg, #4da6ff, #1e90ff, #4da6ff);
-      background-size: 200% 200%;
-      animation: gradientShift 3s ease infinite;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    #passwordScreen input {
-      padding: 12px 16px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      background: #222;
-      color: white;
-      box-shadow: 0 0 10px rgba(77,166,255,0.2);
-      outline: none;
-    }
-    #passwordScreen button {
-      margin-top: 12px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background: #4da6ff;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      box-shadow: 0 0 12px rgba(77,166,255,0.3);
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    #passwordScreen button:hover {
-      background: #3a8dde;
-      transform: scale(1.05);
-    }
-    #passwordScreen #error {
-      color: #ff4d4d;
-      margin-top: 12px;
-      font-weight: 500;
-      display: none;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-  </style>
+  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #000;
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+    letter-spacing: -1px;
+  }
+
+  #button-container {
+    display: flex;
+    gap: 20px;
+  }
+
+  button {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  button:hover {
+    background: #fff;
+    color: #000;
+  }
+
+  a {
+    color: #888;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #fff;
+  }
+
+  #random-text {
+    margin-top: 30px;
+    font-size: 0.8rem;
+    color: #666;
+  }
+
+  /* Password Screen */
+  #passwordScreen {
+    position: fixed;
+    inset: 0;
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #passwordScreen h2 {
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  #passwordScreen input {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px;
+    outline: none;
+    width: 200px;
+  }
+
+  #passwordScreen button {
+    margin-top: 10px;
+    width: 200px;
+  }
+
+  #error {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-top: 10px;
+  }
+</style>
 </head>
 <body>
 
@@ -153,24 +127,16 @@
 
 <div id="realContent" style="display:none; flex-direction: column; align-items: center; justify-content: center;">
 
-  <div id="tsparticles"></div>
 
   <div id="title">Fix Selector</div>
 
-  <div id="button-container" style="margin-top: 10px;">
-    <button id="bypass-button">Fix</button>
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
-  <a href="site" style="font-size: 14px; color: #aaa; text-decoration: underline; cursor: pointer;">
-        No Fix
-      </a>
-      <div style="font-size: 12px; color: #666;">less features</div>
-    </div>
-  </div>
+  <div id="button-container">
+  <button id="bypass-button">Fix</button>
+  <a href="site">No Fix</a>
 </div>
 
   <div id="random-text" style="margin-top: 25px; font-size: 14px; color: #666; text-decoration: none; cursor: default;"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
 <script>
   tsParticles.load("tsparticles", {
     fullScreen: { enable: false },
@@ -305,29 +271,7 @@
 
   // Text you can edit anytime:
 const randomTexts = [
-  "Welcome back!",
-  "Don't let the teachers catch ya!",
-  "Instead of playing the same 4 games on the site try some other ones! Kidding, you're not forced to.",
-  "I've got my eye on you...",
-  "Would you rather play video games or do your school work? I know which one you chose.",
-  "Does anyone want to hop on some games?",
-  "I have a dream that every kid will be able to play video games in school.",
-  "Remember to vote for Game of the Week!",
-  "Did you vote yet?",
-  "There are many features you probably haven't heard of yet such as Game of the Week. Speaking of that, go check it out!",
-  "Are oranges called oranges because of the color orange or is it because they're orange? What am I talking about again?",
-  "Fun Fact: This text has a 1 in 1,000,000 chance of appearing! Edit: No it doesn't that's a lie.",
-  "Fun Fact: This text has a 1 in 23 chance of appearing! Edit: It really does and it's not a lie.",
-  "This text appearing 1 out of 23 times means there are 22 other quotes like this waiting to be discovered!",
-  ".(emit-eerf evah uoy sselun) krow ruoy oD",
-  "Yelvin is sigma.",
-  "Special thanks to you!",
-  "Go check out our oranges! Wait, I meant YouTube... Discord... or whatever.",
-  "Recommend some games you like using the request form!",
-  "Check out our YouTube!",
-  "Join our Discord!",
-  "Averageperson4 is average. NKC is better.",
-  "Who is APAP?",
+  "We're running it back!",
 ];
 
 function showRandomText() {
