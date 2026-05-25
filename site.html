@@ -18,312 +18,321 @@
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-  font-family:'Inter',sans-serif;
-  background:
-    radial-gradient(circle at top left,#1a1a1a 0%,transparent 35%),
-    radial-gradient(circle at bottom right,#111 0%,transparent 40%),
-    linear-gradient(180deg,#050505,#0d0d0d,#111);
-  color:white;
-  min-height:100vh;
-  overflow-x:hidden;
+    font-family:"Inter",sans-serif;
+    background:
+    radial-gradient(circle at top left,#1b1b1b 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#141414 0%,transparent 35%),
+    linear-gradient(180deg,#060606,#111);
+    color:white;
+    min-height:100vh;
+    overflow-x:hidden;
 }
 
-/* floating bubbles */
+/* floating blobs */
+
 body::before,
 body::after{
-  content:"";
-  position:fixed;
-  width:400px;
-  height:400px;
-  border-radius:50%;
-  background:rgba(255,255,255,.03);
-  filter:blur(60px);
-  z-index:-1;
+    content:"";
+    position:fixed;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    filter:blur(120px);
+    z-index:-1;
 }
 
 body::before{
-  top:-100px;
-  left:-100px;
+    top:-100px;
+    left:-100px;
+    background:rgba(255,255,255,.06);
 }
 
 body::after{
-  bottom:-100px;
-  right:-100px;
+    right:-100px;
+    bottom:-100px;
+    background:rgba(255,255,255,.04);
 }
 
 /* HEADER */
 
 header{
-  position:fixed;
-  top:12px;
-  left:50%;
-  transform:translateX(-50%);
-  width:96%;
-  max-width:1400px;
+    position:sticky;
+    top:18px;
 
-  background:rgba(20,20,20,.7);
+    width:min(95%,1300px);
+    margin:auto;
 
-  backdrop-filter:blur(20px);
+    background:rgba(12,12,12,.65);
 
-  border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(25px);
 
-  border-radius:28px;
+    border:1px solid rgba(255,255,255,.08);
 
-  padding:16px;
+    border-radius:28px;
 
-  z-index:999;
+    padding:22px;
 
-  box-shadow:
-  0 10px 40px rgba(0,0,0,.45),
-  inset 0 1px rgba(255,255,255,.05);
+    margin-top:18px;
+
+    z-index:100;
 }
 
 .header-container{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  justify-content:center;
-  align-items:center;
+    display:flex;
+    flex-direction:column;
+    gap:20px;
 }
 
-.header-container h1{
-  font-size:1.7rem;
-  font-weight:700;
-
-  background:linear-gradient(
-  90deg,
-  #fff,
-  #cfcfcf
-  );
-
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+.top-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
 }
 
-/* BUTTONS */
+.logo{
+    font-size:32px;
+    font-weight:700;
+}
+
+.controls{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+/* buttons */
 
 button{
+    background:rgba(255,255,255,.05);
 
-  background:
-  linear-gradient(
-  145deg,
-  rgba(40,40,40,.9),
-  rgba(20,20,20,.9)
-  );
+    border:1px solid rgba(255,255,255,.08);
 
-  border:none;
+    color:white;
 
-  color:white;
+    padding:12px 18px;
 
-  padding:10px 18px;
+    border-radius:16px;
 
-  border-radius:999px;
-
-  cursor:pointer;
-
-  transition:.25s;
-
-  box-shadow:
-  inset 0 1px rgba(255,255,255,.08),
-  0 4px 18px rgba(0,0,0,.35);
+    transition:.25s;
 }
 
 button:hover{
+    background:rgba(255,255,255,.12);
 
-  transform:
-  translateY(-2px)
-  scale(1.03);
-
-  background:
-  linear-gradient(
-  145deg,
-  #2d2d2d,
-  #181818
-  );
+    transform:translateY(-2px);
 }
 
-/* SEARCH */
+/* search hero */
+
+.search-wrapper{
+    display:flex;
+    justify-content:center;
+}
 
 #search-input{
+    width:min(600px,100%);
 
-  width:220px;
+    padding:18px 24px;
 
-  background:
-  rgba(255,255,255,.04);
+    border:none;
 
-  border:none;
+    outline:none;
 
-  padding:12px 16px;
+    background:rgba(255,255,255,.05);
 
-  border-radius:999px;
+    color:white;
 
-  color:white;
+    border-radius:22px;
 
-  backdrop-filter:blur(12px);
+    backdrop-filter:blur(20px);
 
-  outline:none;
+    font-size:16px;
 }
 
-#search-input::placeholder{
-  color:#888;
+/* filters */
+
+#filter-container{
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:12px;
 }
 
-#search-pane{
+.filter-btn{
+    border-radius:999px;
 
-  margin-top:10px;
+    padding:10px 20px;
+}
 
-  background:
-  rgba(20,20,20,.95);
+.filter-btn.active{
+    background:white;
 
-  border-radius:18px;
-
-  padding:12px;
-
-  border:
-  1px solid rgba(255,255,255,.05);
-
-  backdrop-filter:blur(18px);
+    color:black;
 }
 
 /* MAIN */
 
 main{
-  margin-top:170px;
-  padding:30px;
+    width:min(95%,1400px);
+
+    margin:auto;
+
+    margin-top:40px;
 }
+
+/* game cards */
 
 .games-grid{
+    display:grid;
 
-  display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(240px,1fr));
 
-  grid-template-columns:
-  repeat(auto-fit,minmax(250px,1fr));
-
-  gap:22px;
+    gap:24px;
 }
 
-/* GAME CARDS */
+.game-link{
+    text-decoration:none;
+}
 
 .game-card{
+    background:rgba(20,20,20,.65);
 
-  background:
-  linear-gradient(
-  180deg,
-  rgba(35,35,35,.85),
-  rgba(15,15,15,.95)
-  );
+    backdrop-filter:blur(20px);
 
-  border-radius:28px;
+    border:1px solid rgba(255,255,255,.07);
 
-  overflow:hidden;
+    border-radius:28px;
 
-  border:
-  1px solid rgba(255,255,255,.05);
+    overflow:hidden;
 
-  backdrop-filter:blur(16px);
-
-  transition:.3s;
-
-  box-shadow:
-  0 10px 30px rgba(0,0,0,.35);
+    transition:.3s;
 }
 
 .game-card:hover{
+    transform:translateY(-8px);
 
-  transform:
-  translateY(-8px);
-
-  box-shadow:
-  0 20px 50px rgba(0,0,0,.55);
+    border-color:rgba(255,255,255,.18);
 }
 
 .game-image{
-
-  padding:12px;
+    height:190px;
 }
 
 .game-image img{
-
-  width:100%;
-
-  height:180px;
-
-  object-fit:cover;
-
-  border-radius:18px;
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 .game-name{
+    padding:18px;
 
-  padding:18px;
+    font-weight:600;
 
-  text-align:center;
-
-  font-weight:600;
-
-  background:
-  rgba(255,255,255,.02);
-
-  border-top:
-  1px solid rgba(255,255,255,.04);
+    text-align:center;
 }
 
-/* FILTERS */
-
-#filter-container{
-
-  margin-top:14px;
-
-  gap:10px;
-}
-
-.filter-btn{
-
-  background:
-  rgba(255,255,255,.04);
-
-  border-radius:999px;
-}
-
-.filter-btn.active{
-
-  background:white;
-
-  color:black;
-}
-
-/* CHANGELOG */
+/* changelog + links */
 
 #changelog{
+    width:min(95%,1300px);
 
-  margin:80px auto;
+    margin:100px auto;
 
-  max-width:1200px;
+    display:grid;
 
-  background:
-  rgba(20,20,20,.7);
+    grid-template-columns:2fr 1fr;
 
-  border-radius:30px;
-
-  backdrop-filter:blur(20px);
-
-  border:
-  1px solid rgba(255,255,255,.05);
-
-  padding:40px;
+    gap:24px;
 }
 
+.glass-box{
+    background:rgba(15,15,15,.65);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:30px;
+
+    padding:32px;
+}
+
+.glass-box h2{
+    margin-bottom:20px;
+}
+
+.changelog-entry{
+    background:rgba(255,255,255,.03);
+
+    padding:20px;
+
+    border-radius:18px;
+
+    margin-bottom:14px;
+}
+
+.link-slot a{
+    display:block;
+
+    padding:16px;
+
+    background:rgba(255,255,255,.03);
+
+    border-radius:16px;
+
+    color:white;
+
+    text-decoration:none;
+
+    margin-bottom:12px;
+}
+
+/* footer */
+
 footer{
+    width:min(95%,1300px);
 
-  padding:50px;
+    margin:auto;
 
-  color:#aaa;
+    margin-bottom:40px;
+
+    padding:28px;
+
+    text-align:center;
+
+    background:rgba(15,15,15,.55);
+
+    backdrop-filter:blur(20px);
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.07);
+}
+
+/* mobile */
+
+@media(max-width:900px){
+
+#changelog{
+grid-template-columns:1fr;
+}
+
+.top-row{
+flex-direction:column;
+gap:18px;
+}
 }
   </style>
 </head>
@@ -351,32 +360,44 @@ tsParticles.load("tsparticles", {
 </script>
 
 <header>
-  <div class="header-container">
-    <div id="search-container">
-      <input type="text" id="search-input" placeholder="Search games..." />
-      <div id="search-pane"></div>
-    </div>
 
-    <button id="smart-proxy-btn">Smart Proxy</button>
-    <button id="changelog-btn">Changelog</button>
-    <h1>billybobgames v2</h1>
-    <button id="toggle-filter-btn">Filters</button>
-    <button id="proxy-home-btn">GotW Entry</button>
-    <button id="random-game-btn">🎲 Random Game 🎲</button>
-  </div>
-  
-  <div id="filter-container">
-    <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="action">Action</button>
-    <button class="filter-btn" data-filter="platformer">Platformer</button>
-    <button class="filter-btn" data-filter="shooter">Shooter</button>
-    <button class="filter-btn" data-filter="driving">Driving</button>
-    <button class="filter-btn" data-filter="sports">Sports</button>
-    <button class="filter-btn" data-filter="puzzle">Puzzle</button>
-    <button class="filter-btn" data-filter="strategy">Strategy</button>
-    <button class="filter-btn" data-filter="simulation">Simulation</button>
-    <button class="filter-btn" data-filter="horror">Horror</button>
-  </div>
+<div class="header-container">
+
+<div class="top-row">
+
+<div class="logo">
+billybobgames
+</div>
+
+<div class="controls">
+
+<button>Smart Proxy</button>
+<button>Changelog</button>
+<button>Random</button>
+
+</div>
+
+</div>
+
+<div class="search-wrapper">
+<input
+id="search-input"
+placeholder="Search games..."
+>
+</div>
+
+<div id="filter-container">
+
+<button class="filter-btn active">All</button>
+<button class="filter-btn">Action</button>
+<button class="filter-btn">Platformer</button>
+<button class="filter-btn">Driving</button>
+<button class="filter-btn">Puzzle</button>
+
+</div>
+
+</div>
+
 </header>
 
 <main>
@@ -495,11 +516,11 @@ tsParticles.load("tsparticles", {
   </div>
 </main>
 
-<section id="changelog" style="color:white; margin-top:60px; font-family:'Poppins', sans-serif;">
-  <h2 style="font-size:2em; font-weight:700; color:#00aaff; text-shadow:0 0 8px #00aaff; text-align:center; margin-bottom:30px;">
-    Changelog & Other Links
-  </h2>
-  <div style="display:flex; justify-content:center; gap:40px; flex-wrap:wrap;">
+<section id="changelog">
+
+<div class="glass-box">
+
+<h2>Changelog</h2>
     
     <div id="changelog-container" style="flex:1 1 350px; max-width:700px; background:#111; border:1px solid #222; border-radius:8px; padding:20px; text-align:left; font-size:0.95em; line-height:1.4;"
       <h3 style="color:#00aaff; font-size:1.4em; text-align:center; margin-bottom:15px;">Changelog</h3>
@@ -526,8 +547,9 @@ tsParticles.load("tsparticles", {
       </div>
     </div>
     
-    <div id="other-links-container" style="flex:0 1 300px; max-width:350px; background:#111; border:1px solid #222; box-shadow:none;
-      <h3 style="color:#00aaff; font-size:1.4em; margin-bottom:15px;">Other Links</h3>
+    <div class="glass-box">
+
+<h2>Links</h2>
       
       <div class="link-slot" style="margin-bottom:15px;">
         <a href="https://classroomhaas.github.io" target="_blank" style="display:block; padding:12px 20px; background:rgba(0,170,255,0.1); color:#00aaff; text-decoration:none; border-radius:12px; font-weight:bold; transition:0.3s;">Link 1</a>
@@ -550,20 +572,10 @@ tsParticles.load("tsparticles", {
 </section>
 
 <footer>
-  NKC is now mostly maintaining this site with some help from averageperson4.
+  K is now fully maintaining this site. This site is a reupload and redesigned version of classroomhaas.github.io because it shut down.
   <br /><br />
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSehIZWpUlPu8cv4Ew4hIhjYopDhIsQwGViUc1NYf9YrvBGecA/viewform?usp=dialog" target="_blank" style="text-decoration: none;">
     Request a Game/Feedback
-  </a>
-  <br />
- <!-- <a href="./chat.html" style="color: #4da6ff; text-decoration: underline;">Chat (WIP)</a>
-  <br /> -->
-  <a href="https://www.youtube.com/@billybobgamesv2" target="_blank" style="text-decoration: none;">
-    Check out our YouTube!
-  </a>
-  <br />
-  <a href="https://discord.gg/qG7x2QWEXA" target="_blank" style="text-decoration: none;">
-    Join our Discord!
   </a>
 </footer>
 
